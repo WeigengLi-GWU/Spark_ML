@@ -19,3 +19,63 @@
 2022.11.13 15:32:51 INFO  no build target found for D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Hello.scala. Using presentation compiler with project's scala-library version: 3.2.0
 2022.11.13 15:32:54 INFO  time: code lens generation in 5.29s
 2022.11.13 15:41:32 INFO  shutting down Metals
+2022.11.13 16:55:10 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at d:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\.metals\lsp.trace.json or C:\Users\WeigengLi\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.11.13 16:55:11 INFO  logging to file D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\.metals\metals.log
+2022.11.13 16:55:11 INFO  Started: Metals version 0.11.9 in workspace 'D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA' for client Visual Studio Code 1.70.1.
+2022.11.13 16:55:12 INFO  time: initialize in 1.5s
+2022.11.13 16:55:12 WARN  Build server is not auto-connectable.
+2022.11.13 16:55:12 WARN  no build tool detected in workspace 'D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2022.11.13 16:55:12 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\ip_tracker.scala
+2022.11.13 16:55:16 INFO  no build target found for D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\ip_tracker.scala. Using presentation compiler with project's scala-library version: 3.2.0
+2022.11.13 16:55:18 INFO  time: code lens generation in 4.76s
+2022.11.13 16:55:39 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Start_Hive.scala
+十一月 13, 2022 4:55:55 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 43
+2022.11.13 16:56:06 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Start_Hive.scala
+2022.11.13 16:56:10 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Start_Hive.scala
+2022.11.13 16:56:15 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Start_Hive.scala
+2022.11.13 16:56:15 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 16:56:30 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 16:56:44 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 16:56:57 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\ip_tracker.scala
+十一月 13, 2022 4:59:25 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 374
+2022.11.13 16:59:32 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:00:39 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:15:04 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\ip_tracker.scala
+2022.11.13 17:15:16 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\ip_tracker.scala
+2022.11.13 17:15:36 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\ip_tracker.scala
+Exception in thread "pool-3-thread-1" java.lang.Error: java.lang.InterruptedException
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1155)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.InterruptedException
+	at scala.meta.internal.metals.FutureCancelToken.checkCanceled(FutureCancelToken.scala:29)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:195)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:152)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	... 2 more
+2022.11.13 17:17:33 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:18:17 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:22:18 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\ip_tracker.scala
+2022.11.13 17:24:22 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\ip_tracker.scala
+2022.11.13 17:24:29 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\ip_tracker.scala
+2022.11.13 17:24:44 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:27:06 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:27:06 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:27:47 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:28:00 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:28:01 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:28:20 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:28:30 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:28:48 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:29:24 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:29:24 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:29:24 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:29:31 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:32:01 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:32:01 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:32:01 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:32:01 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:48:17 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
+2022.11.13 17:48:27 WARN  no build target for: D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\Peoject\CSCI_6221_SCALA\Auto_Hive_Conf.scala
