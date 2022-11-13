@@ -11,11 +11,11 @@ Hadoop file is huge(about 1.2G), we did so modify for windows system. If you wan
 ## How to build the environment 
 1. Download the zip file in the drive, unzip it in the directory without space in the directory name
 2. Update the environment variables 
-&ensp;SCALA_HOME = your_environment_directory/Scala3  
-&ensp;SPARK_HOME = your_environment_directory/Spark  
-&ensp;JAVA_HOME = your_environment_directory/Java8  
-&ensp;HADOOP_HOME = your_environment_directory/Hadoop  
-&ensp;append these to Path:   
+    SCALA_HOME = your_environment_directory/Scala3  
+    SPARK_HOME = your_environment_directory/Spark  
+    JAVA_HOME = your_environment_directory/Java8  
+    HADOOP_HOME = your_environment_directory/Hadoop  
+    **Append these to Path:**   
 &ensp;&ensp;%SCALA_HOME%/bin;  
 &ensp;&ensp;%SPARK_HOME%/bin;  
 &ensp;&ensp;%HADOOP_HOME%/bin;  
