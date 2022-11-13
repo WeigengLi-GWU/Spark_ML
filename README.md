@@ -16,9 +16,9 @@ Hadoop file is huge(about 1.2G), we did so modify for windows system. If you wan
     JAVA_HOME = your_environment_directory/Java8  
     HADOOP_HOME = your_environment_directory/Hadoop  
     **Append these to Path:**   
-&ensp;&ensp;%SCALA_HOME%/bin;  
-&ensp;&ensp;%SPARK_HOME%/bin;  
-&ensp;&ensp;%HADOOP_HOME%/bin;  
+&ensp;&ensp;%SCALA_HOME%\bin;  
+&ensp;&ensp;%SPARK_HOME%\bin;  
+&ensp;&ensp;%HADOOP_HOME%\bin;  
 &ensp;&ensp;%JAVA_HOME%\bin;  
 &ensp;&ensp;%JAVA_HOME%\jre\bin;  
 &ensp;&ensp;%SCALA_HOME%\bin;  
