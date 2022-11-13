@@ -25,8 +25,8 @@ Hadoop file is huge(about 1.2G), we did so modify for windows system. If you wan
 &ensp;&ensp;%SCALA_HOME%\jre\bin;  
 1. Use these commands to check your environment in cmd  
 &ensp;1. java -version  
-&ensp;2. scala  
-&ensp;3. spark-shell  
-&ensp;4. hadoop  
+&ensp;2. scala -version  
+&ensp;3. spark-shell --version 
+&ensp;4. hadoop -version
     
 
