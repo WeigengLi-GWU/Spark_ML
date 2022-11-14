@@ -19,12 +19,12 @@ Hadoop file is huge(about 1.2G), we did so modify for windows system. If you wan
     ```
     **Append these to Path:**   
     ```
-    %SPARK_HOME%\bin;  
-    %HADOOP_HOME%\bin;  
-    %JAVA_HOME%\bin;  
-    %JAVA_HOME%\jre\bin;  
-    %SCALA_HOME%\bin;  
-    %SCALA_HOME%\jre\bin;  
+    %SPARK_HOME%\bin
+    %HADOOP_HOME%\bin
+    %JAVA_HOME%\bin
+    %JAVA_HOME%\jre\bin
+    %SCALA_HOME%\bin
+    %SCALA_HOME%\jre\bin
     ```
 1. Use these commands to check your environment in cmd  
     1. java -version  
