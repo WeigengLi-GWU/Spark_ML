@@ -1,7 +1,7 @@
 class ExceptionExample{  
     def divide(a:Int, b:Int) = {  
         try{  
-            num/0
+            a/b
         }catch{  
             case e: ArithmeticException => println(e)  
         } 
