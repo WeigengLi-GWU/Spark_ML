@@ -15,6 +15,10 @@ object ip_tracker {
         res = res :+ i.getHostAddress
       }
     }
-    println(res(res.length - 5))
+    for(a <- res) {
+      if (a.contains("192.168.1.")){
+        println(a);
+      }
+    }
   }
 }
