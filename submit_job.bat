@@ -1,0 +1,1 @@
+spark-submit --class org.apache.spark.examples.SparkPi --master spark://192.168.1.19:7077 ../examples/jars/spark-examples_2.12-3.2.2.jar 10

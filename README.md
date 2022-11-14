@@ -19,7 +19,6 @@ Hadoop file is huge(about 1.2G), we did so modify for windows system. If you wan
     ```
     **Append these to Path:**   
     ```
-    %SCALA_HOME%\bin;  
     %SPARK_HOME%\bin;  
     %HADOOP_HOME%\bin;  
     %JAVA_HOME%\bin;  
