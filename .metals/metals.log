@@ -97,3 +97,5 @@ Caused by: java.lang.InterruptedException
 2022.11.13 19:52:17 WARN  no build target for: D:\My V Disk\GWU\courses\CSCI 6221 Melo\CSCI_6221_SCALA\test.scala
 十一月 13, 2022 7:52:17 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 信息: Unsupported notification method: $/setTrace
+2022.11.14 15:18:02 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at d:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\CSCI_6221_SCALA\.metals\lsp.trace.json or C:\Users\WeigengLi\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.11.14 15:18:03 INFO  logging to file D:\OneDrive\OneDrive - The George Washington University\Course\22Fall\6221\CSCI_6221_SCALA\.metals\metals.log
