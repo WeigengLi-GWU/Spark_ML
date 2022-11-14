@@ -11,6 +11,7 @@ object Demo{
     def main(args:Array[String]) : Unit={  
         var e = new ExceptionExample()
         e.divide(100,0)
+        println("Test")
     }  
 }
 
