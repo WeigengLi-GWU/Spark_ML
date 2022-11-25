@@ -1,3 +1,5 @@
 .mentals/
 .vscode/
 .idea/
+start_master.bat
+start_worker.bat
