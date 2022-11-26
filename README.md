@@ -2,7 +2,7 @@
 Git repo for Group Scala  
 # Environment      
     Windows 10 and above
-    Scala 2.13.10  
+    Scala 2.12.15  
     Spark 3.2.2  
     Hadoop 3.3.1  
 To download the exact environment we use this link:  
