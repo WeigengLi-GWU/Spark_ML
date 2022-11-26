@@ -16,8 +16,6 @@ import org.apache.spark.ml.feature.StringIndexer
 
 object decisionTree {
 
-
-
   var countryGrouping: UDF1[String, String] = new UDF1[String, String]() {
     @throws[Exception]
     override def call(country: String): String = {
@@ -30,25 +28,27 @@ object decisionTree {
   }
 
   def main(args: Array[String]): Unit = {
-    System.out.println("Hello world!")
-
-    System.setProperty("hadoop.home.dir", "D:/melo_project/environment/Hadoop")
+    //    System.setProperty("hadoop.home.dir", "D:/CSCI6221/Hadoop")
     Logger.getLogger("org.apache").setLevel(Level.WARN)
 
-    val spark = SparkSession.builder.appName("VPP Chapter Views").config("spark.sql.warehouse.dir", "file:///c:/tmp/").master("local[*]").getOrCreate
-
+    val spark = SparkSession.builder
+      .appName("VPP Chapter Views")
+      .config("spark.sql.warehouse.dir", "file:///c:/tmp/")
+      .master("local[*]")
+      .getOrCreate
 
     spark.udf.register("countryGrouping", countryGrouping, DataTypes.StringType)
-    
-    var csvData = spark.read.option("header", true).option("inferSchema", true).csv("src/resources/VPPFreeTrials.csv")
+
+    var csvData = spark.read
+      .option("header", true)
+      .option("inferSchema", true)
+      .csv("./nextVideoWatch/VPPFreeTrials.csv")
     csvData.show()
 
     csvData = csvData.withColumn("country", callUDF("countryGrouping", col("country")))
       .withColumn("label", when(col("payments_made").geq(1), lit(1)).otherwise(lit(0)))
 
     csvData.show()
-
-
 
     val countryIndexer = new StringIndexer
     csvData = countryIndexer.setInputCol("country").setOutputCol("countryIndex").fit(csvData).transform(csvData)

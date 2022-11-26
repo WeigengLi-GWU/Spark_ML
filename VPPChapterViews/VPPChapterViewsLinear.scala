@@ -18,7 +18,7 @@ import org.apache.spark.sql.functions._
 
 object VPPChapterViewsLinear {
   def main(args: Array[String]): Unit = {
-    System.setProperty("hadoop.home.dir", "D:/CSCI6221/Hadoop")
+//    System.setProperty("hadoop.home.dir", "D:/CSCI6221/Hadoop")
     Logger.getLogger("org.apache").setLevel(Level.WARN)
 
     val spark = SparkSession.builder()
