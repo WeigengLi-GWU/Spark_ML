@@ -3,3 +3,5 @@
 .idea/
 start_master.bat
 start_worker.bat
+/out/
+/CSCI_6221_SCALA.iml
