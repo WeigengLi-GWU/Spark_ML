@@ -1,1 +1,0 @@
-spark-class org.apache.spark.deploy.master.Master -h 192.168.1.153
