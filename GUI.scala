@@ -1,4 +1,4 @@
-package com.project.conf
+package com.wic.gui
 import javafx.application.Application
 import javafx.event.ActionEvent
 import javafx.scene.Scene
