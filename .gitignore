@@ -6,5 +6,5 @@ start_worker.bat
 /out/
 /CSCI_6221_SCALA.iml
 /target/
-
+/project/
 
