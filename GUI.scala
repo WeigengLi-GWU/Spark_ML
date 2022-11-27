@@ -8,6 +8,7 @@ import javafx.scene.text.Text
 import javafx.stage.Stage
 
 import java.awt.Desktop
+import java.lang.Thread.sleep
 import java.net.{URI, URL}
 
 object HelloWorld
@@ -23,6 +24,8 @@ class HelloWorld extends Application
   override def start(primaryStage: Stage)
   {
     val root = new StackPane
+    val popup_window = new Stage
+    popup_window.setTitle("This is a pop up window")
     primaryStage.setScene(new Scene(root, 500, 500))
     val ip = tracker.track_ip()
     val ip_address = new Text("Your IP Address is "+ip)
@@ -37,8 +40,9 @@ class HelloWorld extends Application
     master.setText("create master")
     master.setOnAction((e: ActionEvent) => {
       Runtime.getRuntime.exec("start_master.bat")
+      sleep(5000)
       if (Desktop.isDesktopSupported) {
-        Desktop.getDesktop.browse(new URI(ip+":8080")) //will bring you to master website
+        Desktop.getDesktop.browse(new URI("http://localhost:8080/")) //will bring you to master website
       }
       root.getChildren.remove(master)
       println("master created")
@@ -63,7 +67,6 @@ class HelloWorld extends Application
     submit.setText("submit work")
 
     // location
-
     root.getChildren.add(ip_address) //ip_text
     ip_address.setTranslateX(0)
     ip_address.setTranslateY(-130)
