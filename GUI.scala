@@ -2,7 +2,7 @@ package com.project.conf
 import javafx.application.Application
 import javafx.event.ActionEvent
 import javafx.scene.Scene
-import javafx.scene.control.Button
+import javafx.scene.control.{Button, TextField}
 import javafx.scene.layout.StackPane
 import javafx.scene.text.Text
 import javafx.stage.Stage
@@ -40,13 +40,14 @@ class HelloWorld extends Application
     master.setText("create master")
     master.setOnAction((e: ActionEvent) => {
       Runtime.getRuntime.exec("start_master.bat")
-      sleep(5000)
+      sleep(1000)
+      root.getChildren.remove(master)
+      sleep(1000)
+      root.getChildren.add(master_created)
+      sleep(3000)
       if (Desktop.isDesktopSupported) {
         Desktop.getDesktop.browse(new URI("http://localhost:8080/")) //will bring you to master website
       }
-      root.getChildren.remove(master)
-      println("master created")
-      root.getChildren.add(master_created)
     })
 
     // Worker
@@ -54,9 +55,12 @@ class HelloWorld extends Application
     val worker = new Button
     worker.setText("add worker")
     val worker_bat = new Auto_Hive_Conf()
-    var count = 0
-    worker_bat.write_worker_nodes_bat()
+    val master_ip = new TextField()
+    val textbox = new Text
     worker.setOnAction((e: ActionEvent) => {
+      root.getChildren.add(textbox)
+      textbox.setText("you are now one of worker of "+master_ip.getText)
+      worker_bat.write_worker_nodes_bat(master_ip.getText())
       Runtime.getRuntime.exec("start_worker.bat")
       root.getChildren.remove(worker)
       println("worker added")
@@ -77,10 +81,15 @@ class HelloWorld extends Application
     master_created.setTranslateY(-100)
     root.getChildren.add(worker) //worker
     worker.setTranslateX(0)
-    worker.setTranslateY(0)
+    worker.setTranslateY(100)
+    root.getChildren.add(master_ip) //master ip location
+    master_ip.setTranslateX(0)
+    master_ip.setTranslateY(50)
+    textbox.setTranslateX(0)
+    textbox.setTranslateY(100)
     root.getChildren.add(submit) //submit
     submit.setTranslateX(0)
-    submit.setTranslateY(100)
+    submit.setTranslateY(150)
 
     primaryStage.show
   }

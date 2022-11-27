@@ -11,12 +11,11 @@ class Auto_Hive_Conf {
       printWriter.close() // Closing printwriter
     }
 
-    def write_worker_nodes_bat(): Unit = {
-      val ip = tracker.track_ip()
+    def write_worker_nodes_bat(master_ip: String): Unit = {
       val fileObject = new File("start_worker.bat")
       val printWriter = new PrintWriter(fileObject)
       printWriter.write(
-        "spark-class org.apache.spark.deploy.worker.Worker spark://" + ip +":7077")
+        "spark-class org.apache.spark.deploy.worker.Worker spark://" + master_ip +":7077")
       printWriter.close() // Closing printwriter
     }
 
@@ -46,8 +45,9 @@ class Auto_Hive_Conf {
 object Test {
    def main(args: Array[String]):Unit={
     var a= new Auto_Hive_Conf()
+    val master_ip = tracker.track_ip()
     a.write_master_nodes_bat()
-    a.write_worker_nodes_bat()
+    a.write_worker_nodes_bat(master_ip)
     a.write_submit_nodes_bat()
    }
 
