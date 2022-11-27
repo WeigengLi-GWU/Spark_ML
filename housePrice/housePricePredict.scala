@@ -21,7 +21,7 @@ object housePricePredict {
 
 //    print(spark)
 
-    var csvData = spark.read.option("header", true).option("inferSchema", true).csv("src/resources/kc_house_data.csv")
+    var csvData = spark.read.option("header", true).option("inferSchema", true).csv("./housePrice/kc_house_data.csv")
 
 //    csvData.show();
     csvData = csvData.withColumn("sqft_above_percentage", col("sqft_above").divide(col("sqft_living")))
