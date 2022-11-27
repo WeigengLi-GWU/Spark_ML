@@ -1,5 +1,5 @@
-package com.project.conf
-import com.project.conf.tracker
+package com.wic.gui
+import com.wic.gui.tracker
 import java.io._
 class Auto_Hive_Conf {
     def write_master_nodes_bat():Unit={

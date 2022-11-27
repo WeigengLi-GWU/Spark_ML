@@ -1,4 +1,4 @@
-package com.project.conf
+package com.wic.gui
 import java.net._
 
 object tracker {

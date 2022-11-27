@@ -1,3 +1,5 @@
+package com.wic.ml
+
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
 import org.apache.spark.ml.feature.{OneHotEncoder, StringIndexer, VectorAssembler}
@@ -11,8 +13,11 @@ object housePricePredict {
   def main(args: Array[String]): Unit = {
     println("Hello world!")
 
-    System.setProperty("hadoop.home.dir", "D:/melo_project/environment/Hadoop")
+//    System.setProperty("hadoop.home.dir", "D:/melo_project/environment/Hadoop")
+
+    // only show the WARNNING log
     Logger.getLogger("org.apache").setLevel(Level.WARN)
+    //build the spark and set the config of it
     val spark = SparkSession.builder()
       .master("local")
       .appName("House Price Analysis")
@@ -20,13 +25,19 @@ object housePricePredict {
       .getOrCreate()
 
 //    print(spark)
+    //read the file which need to clean, transform and analysis
+    var csvData = spark.read.option("header", true).option("inferSchema", true).csv("./housePrice/kc_house_data.csv")
 
-    var csvData = spark.read.option("header", true).option("inferSchema", true).csv("src/resources/kc_house_data.csv")
-
-//    csvData.show();
+//    csvData.show()
+    //calculate the percentage of sqft and create this colum
     csvData = csvData.withColumn("sqft_above_percentage", col("sqft_above").divide(col("sqft_living")))
 
-    val conditionIndexer: StringIndexer = new StringIndexer
+
+//      csvData.show()
+        //data clean Non numeric data
+      // because the type of attribute of condition,grade,zipcode are string not integer, we can change it into array and transform it become vector
+      //Indexing
+      val conditionIndexer: StringIndexer = new StringIndexer
     conditionIndexer.setInputCol("condition")
     conditionIndexer.setOutputCol("conditionIndex")
     csvData = conditionIndexer.fit(csvData).transform(csvData)
@@ -41,14 +52,22 @@ object housePricePredict {
     zipcodeIndexer.setOutputCol("zipcodeIndex")
     csvData = zipcodeIndexer.fit(csvData).transform(csvData)
 
+      //encoding
     val encoder: OneHotEncoder = new OneHotEncoder
     encoder.setInputCols(Array[String]("conditionIndex", "gradeIndex", "zipcodeIndex"))
     encoder.setOutputCols(Array[String]("conditionVector", "gradeVector", "zipcodeVector"))
     csvData = encoder.fit(csvData).transform(csvData)
 
-    val vectorAssembler: VectorAssembler = new VectorAssembler().setInputCols(Array[String]("bedrooms", "bathrooms", "sqft_living", "sqft_above_percentage", "floors", "conditionVector", "gradeVector", "zipcodeVector", "waterfront")).setOutputCol("features")
 
-    val modelInputData: Dataset[Row] = vectorAssembler.transform(csvData).select("price", "features").withColumnRenamed("price", "label")
+      //set bedrooms, bathrooms, sqft_living, sqft_above_percentage, floors, conditionVector, gradeVector, zipcodeVector, waterfront as features
+    val vectorAssembler: VectorAssembler = new VectorAssembler()
+      .setInputCols(Array[String]("bedrooms", "bathrooms", "sqft_living", "sqft_above_percentage", "floors", "conditionVector", "gradeVector", "zipcodeVector", "waterfront"))
+      .setOutputCol("features")
+
+    val modelInputData: Dataset[Row] = vectorAssembler
+      .transform(csvData)
+      .select("price", "features")
+      .withColumnRenamed("price", "label")
 
     //modelInputData.show();
 

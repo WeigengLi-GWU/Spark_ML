@@ -1,3 +1,4 @@
+package com.wic.ml
 import org.apache.spark.sql.functions.col
 import org.apache.spark.sql.functions.when
 import org.apache.log4j.Level
