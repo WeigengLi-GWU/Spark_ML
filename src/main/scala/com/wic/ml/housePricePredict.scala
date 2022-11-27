@@ -59,7 +59,8 @@ object housePricePredict {
     csvData = encoder.fit(csvData).transform(csvData)
 
 
-      //set bedrooms, bathrooms, sqft_living, sqft_above_percentage, floors, conditionVector, gradeVector, zipcodeVector, waterfront as features
+      //set bedrooms, bathrooms, sqft_living, sqft_above_percentage, floors, conditionVector, gradeVector,
+      // zipcodeVector, waterfront as features
     val vectorAssembler: VectorAssembler = new VectorAssembler()
       .setInputCols(Array[String]("bedrooms", "bathrooms", "sqft_living", "sqft_above_percentage", "floors", "conditionVector", "gradeVector", "zipcodeVector", "waterfront"))
       .setOutputCol("features")
@@ -70,27 +71,37 @@ object housePricePredict {
       .withColumnRenamed("price", "label")
 
     //modelInputData.show();
-
+    //split the data into a training set and a test set in the ratio of 8:2
     val dataSplits: Array[Dataset[Row]] = modelInputData.randomSplit(Array[Double](0.8, 0.2))
     val trainingAndTestData: Dataset[Row] = dataSplits(0)
     val holdOutData: Dataset[Row] = dataSplits(1)
+
 
     val linearRegression: LinearRegression = new LinearRegression
 
     val paramGridBuilder: ParamGridBuilder = new ParamGridBuilder
 
-    val paramMap: Array[ParamMap] = paramGridBuilder.addGrid(linearRegression.regParam, Array[Double](0.01, 0.1, 0.5)).addGrid(linearRegression.elasticNetParam, Array[Double](0, 0.5, 1)).build
+    //Setting linear regression parameter
+    val paramMap: Array[ParamMap] = paramGridBuilder
+      .addGrid(linearRegression
+        .regParam, Array[Double](0.01, 0.1, 0.5))
+      .addGrid(linearRegression.elasticNetParam, Array[Double](0, 0.5, 1)).build
 
-    val trainValidationSplit: TrainValidationSplit = new TrainValidationSplit().setEstimator(linearRegression).setEvaluator(new RegressionEvaluator().setMetricName("r2")).setEstimatorParamMaps(paramMap).setTrainRatio(0.8)
+    val trainValidationSplit: TrainValidationSplit = new TrainValidationSplit()
+      .setEstimator(linearRegression)
+      .setEvaluator(new RegressionEvaluator().setMetricName("r2"))
+      .setEstimatorParamMaps(paramMap)
+      .setTrainRatio(0.8)
 
+    //train model
     val model: TrainValidationSplitModel = trainValidationSplit.fit(trainingAndTestData)
     val lrModel: LinearRegressionModel = model.bestModel.asInstanceOf[LinearRegressionModel]
 
-
+    //prrint the R2, which id the evaluation of model
     System.out.println("The training data r2 value is " + lrModel.summary.r2 + " and the RMSE is " + lrModel.summary.rootMeanSquaredError)
 
     //model.transform(testData).show();
-
+    //print the information of best model
     System.out.println("The test data r2 value is " + lrModel.evaluate(holdOutData).r2 + " and the RMSE is " + lrModel.evaluate(holdOutData).rootMeanSquaredError)
 
     System.out.println("coefficients : " + lrModel.coefficients + " intercept : " + lrModel.intercept)
