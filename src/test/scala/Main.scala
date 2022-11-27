@@ -15,13 +15,13 @@ object Main {
       .master("local[*]")
       .getOrCreate
 
-    var csvData: Dataset[Row] = spark.read.option("header", true).option("inferSchema", true).csv("src/VPPcourseViews.csv")
+    var csvData: Dataset[Row] = spark.read.option("header", true).option("inferSchema", true).csv("src/test/scala/VPPcourseViews.csv")
 
     csvData.show()
     //make it becomes integer
     csvData = csvData.withColumn("proportionWatched", col("proportionWatched").multiply(100))
 
-    //create a table to wath the data
+    //create a table to watch the data
     //        csvData.groupBy("userId").pivot("courseId").sum("proportionWatched").show();
 
     val als: ALS = new ALS()
@@ -37,11 +37,11 @@ object Main {
     //        userRecs.show();
     val userRecsList: List[Row] = userRecs.takeAsList(5)
 
-    for (r <- userRecsList) {
-      val userId = r.getAs(0)
-      val recs = r.getAs(1).toString
-      System.out.println("User " + userId + " might want to recommend" + recs)
-      System.out.println("This user has already watched: ")
+    for (r <- 0 to userRecsList.size() - 1) {
+      val userId = userRecsList.get(r).get(0)
+      val recs = userRecsList.get(r).get(1)
+      println("User " + userId + " might want to recommend" + recs)
+      println("This user has already watched: ")
       csvData.filter("userId =" + userId).show()
     }
 
