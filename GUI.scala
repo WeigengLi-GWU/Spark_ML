@@ -58,6 +58,7 @@ class HelloWorld extends Application
     val master_ip = new TextField()
     val textbox = new Text
     worker.setOnAction((e: ActionEvent) => {
+      root.getChildren.remove(master_ip)
       root.getChildren.add(textbox)
       textbox.setText("you are now one of worker of "+master_ip.getText)
       worker_bat.write_worker_nodes_bat(master_ip.getText())
@@ -86,7 +87,7 @@ class HelloWorld extends Application
     master_ip.setTranslateX(0)
     master_ip.setTranslateY(50)
     textbox.setTranslateX(0)
-    textbox.setTranslateY(100)
+    textbox.setTranslateY(50)
     root.getChildren.add(submit) //submit
     submit.setTranslateX(0)
     submit.setTranslateY(150)
