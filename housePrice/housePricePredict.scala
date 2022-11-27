@@ -11,7 +11,7 @@ object housePricePredict {
   def main(args: Array[String]): Unit = {
     println("Hello world!")
 
-    System.setProperty("hadoop.home.dir", "D:/melo_project/environment/Hadoop")
+//    System.setProperty("hadoop.home.dir", "D:/melo_project/environment/Hadoop")
     Logger.getLogger("org.apache").setLevel(Level.WARN)
     val spark = SparkSession.builder()
       .master("local")
