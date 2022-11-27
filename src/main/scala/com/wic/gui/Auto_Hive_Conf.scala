@@ -1,6 +1,6 @@
 package com.wic.gui
-import com.wic.gui.tracker
 import java.io._
+import com.wic.gui.tracker
 class Auto_Hive_Conf {
     def write_master_nodes_bat():Unit={
       val ip = tracker.track_ip()

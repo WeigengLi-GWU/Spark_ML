@@ -9,7 +9,7 @@ import javafx.stage.Stage
 
 import java.awt.Desktop
 import java.lang.Thread.sleep
-import java.net.{URI, URL}
+import java.net.URI
 
 object HelloWorld
 {

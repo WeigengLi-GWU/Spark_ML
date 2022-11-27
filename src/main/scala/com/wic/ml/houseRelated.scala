@@ -1,8 +1,7 @@
-import org.apache.log4j.Level
-import org.apache.log4j.Logger
-import org.apache.spark.sql.Dataset
-import org.apache.spark.sql.Row
-import org.apache.spark.sql.SparkSession
+package com.wic.ml
+
+import org.apache.log4j.{Level, Logger}
+import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 class housrRelated {
 
@@ -17,7 +16,7 @@ object housrRelated{
 
     val spark: SparkSession = SparkSession.builder.appName("House Price Analysis").config("spark.sql.warehouse.dir", "file:///c:/tmp/").master("local[*]").getOrCreate
 
-    var csvData: Dataset[Row] = spark.read.option("header", true).option("inferSchema", true).csv("./housePrice/kc_house_data.csv")
+    var csvData: Dataset[Row] = spark.read.option("header", true).option("inferSchema", true).csv("data/kc_house_data.csv")
 
     //        csvData.describe().show();
     csvData = csvData.drop("id", "date", "waterfront", "view", "condition", "grade", "yr_renovated", "zipcode", "lat", "long")

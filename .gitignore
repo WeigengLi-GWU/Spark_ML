@@ -1,7 +1,9 @@
 .mentals/
 .vscode/
 .idea/
-start_master.bat
+bat/start_master.bat
 start_worker.bat
 /out/
 /CSCI_6221_SCALA.iml
+/target/
+

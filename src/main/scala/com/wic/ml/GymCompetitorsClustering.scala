@@ -1,15 +1,9 @@
 package com.wic.ml
-import org.apache.log4j.Level
-import org.apache.log4j.Logger
+
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.ml.clustering.KMeans
-import org.apache.spark.ml.clustering.KMeansModel
 import org.apache.spark.ml.evaluation.ClusteringEvaluator
-import org.apache.spark.ml.feature.OneHotEncoder
-import org.apache.spark.ml.feature.StringIndexer
-import org.apache.spark.ml.feature.VectorAssembler
-import org.apache.spark.ml.linalg.Vector
-import org.apache.spark.sql.Dataset
-import org.apache.spark.sql.Row
+import org.apache.spark.ml.feature.{OneHotEncoder, StringIndexer, VectorAssembler}
 import org.apache.spark.sql.SparkSession
 
 
@@ -26,7 +20,7 @@ object GymCompetitorsClustering {
     var csvData = spark.read
       .option("header", true)
       .option("inferSchema", true)
-      .csv("./GymCluster/GymCompetition.csv")
+      .csv("data/GymCompetition.csv")
 
     //csvData.printSchema();
 

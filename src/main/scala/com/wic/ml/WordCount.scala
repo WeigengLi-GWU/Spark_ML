@@ -1,6 +1,5 @@
 package com.wic.ml
-import org.apache.log4j.Logger
-import org.apache.log4j.Level
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.SparkContext
 
 object WordCount {
@@ -10,7 +9,7 @@ object WordCount {
 //    val sc = new SparkContext("spark://192.168.1.14:7077", "WordCount")
     val sc = new SparkContext("local[*]", "WordCount")
 
-    val file = sc.textFile("./WordCount.txt")
+    val file = sc.textFile("data/WordCount.txt")
 
     // 先分割成单词数组，然后合并，再与1形成KV映射
     val result = file.flatMap(value => value.split(" "))
