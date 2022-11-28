@@ -8,12 +8,14 @@ object LinearRegression_SimpleTest {
     // use default master local[*]
     /*
     If you have a master node set master with your ip by
-    var model: KMean = new KMean("spark://"your ip":7077")
+    var model: LinearRegression = new LinearRegression("spark://"your ip":7077")
     default running code in local
     parameters for K mean
-    DecisionTree(master:String = "local[*]",
+    LinearRegression(master:String = "local[*]",
                 appName:String = "KMeans",
                 spark_message: Boolean = false)
+
+     Use spark_message to show or not show message from spark
      */
     var model: LinearRegression = new LinearRegression()
     var csvData = model.read_csv("data/kc_house_data.csv")

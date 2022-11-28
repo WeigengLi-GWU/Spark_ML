@@ -22,14 +22,15 @@ object DecisionTree_Simpletest {
     // use default master local[*]
     /*
     If you have a master node set master with your ip by
-    var model: KMean = new KMean("spark://"your ip":7077")
+    var model: DecisionTree = new DecisionTree("spark://"your ip":7077")
     default running code in local
-    parameters for K mean
-    KMean(master:String = "local[*]",
+    parameters for DecisionTree
+    DecisionTree(master:String = "local[*]",
                 appName:String = "KMeans",
                 spark_message: Boolean = false)
     def fit(data: DataFrame,num_Clusters: Int)
     def tune(data: DataFrame, min_clusters:Int,max_clusters :Int)
+    Use spark_message to show or not show message from spark
      */
     var model: DecisionTree = new DecisionTree()
     var csvData = model.read_csv("data/vppFreeTrials.csv")

@@ -13,6 +13,7 @@ object KMean_Simpletest {
     DecisionTree(master:String = "local[*]",
                 appName:String = "KMeans",
                 spark_message: Boolean = false)
+    Use spark_message to show or not show message from spark
      */
     var model: KMean = new KMean()
     var csvData = model.read_csv("data/GymCompetition.csv")
