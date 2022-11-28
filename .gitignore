@@ -8,3 +8,4 @@ bat/start_worker.bat
 /target/
 /project/
 /null/
+/.bsp/
