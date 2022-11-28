@@ -64,3 +64,8 @@ The default server is your local server. If you want to apply model in you clust
 check the commit and change the ip to your spark://your_ip:7077 address.Use GUI to build up your cluster
 You can find that address in your spark GUI website.
 
+# 2.3 Use our ML API for Machine Learning on Spark
+Our ML API are in com.wic.ml. We have defined functions for data preprocessing. All ML model have .fit() function for
+training model, tune() function for tuning hyperparameter, evaluation() function for evaluating index(distance) on test
+set. Less Coding, More Fun!!! 
+
