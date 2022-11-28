@@ -75,7 +75,7 @@ object VPPChapterViewsLinear {
     val trainAndTestData = trainAndHoldoutData(0)
     val holdOutData = trainAndHoldoutData(1)
 
-    val lr = new LinearRegression
+    val lr = new org.apache.spark.ml.regression.LinearRegression
 
     // Add a map of parameters
     // Spark will train several models based on different combinations

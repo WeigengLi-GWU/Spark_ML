@@ -7,7 +7,7 @@ import org.apache.spark.ml.feature.{OneHotEncoder, StringIndexer, VectorAssemble
 import org.apache.spark.sql.SparkSession
 
 
-object GymCompetitorsClustering {
+object kMeans {
   def main(args: Array[String]): Unit = {
     Logger.getLogger("org.apache").setLevel(Level.WARN)
 
@@ -20,7 +20,7 @@ object GymCompetitorsClustering {
     var csvData = spark.read
       .option("header", true)
       .option("inferSchema", true)
-      .csv("./GymCluster/GymCompetition.csv")
+      .csv("data/GymCompetition.csv")
 
     //csvData.printSchema();
 

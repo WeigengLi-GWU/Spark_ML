@@ -17,7 +17,7 @@ object KMean_Simpletest {
     var model: KMean = new KMean()
     var csvData = model.read_csv("data/GymCompetition.csv")
     csvData = Preprocess.to_onehot(csvData, "Gender")
-    var inputdata = Preprocess.to_Fearure_vector(Array[String]("GenderVector", "Age", "Height", "Weight", "NoOfReps"))
+    var inputdata = Preprocess.to_Fearure_vector(csvData,Array[String]("Gender", "Age", "Height", "Weight", "NoOfReps"))
     model.fit(inputdata, 3)
     model.info()
     model.tune(inputdata,2,8)

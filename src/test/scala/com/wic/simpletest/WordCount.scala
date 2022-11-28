@@ -1,4 +1,5 @@
-package com.wic.ml
+package com.wic.simpletest
+
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.SparkContext
 

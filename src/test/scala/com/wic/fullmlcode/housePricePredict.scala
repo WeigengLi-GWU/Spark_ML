@@ -1,11 +1,13 @@
+package com.wic.fullmlcode
+
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
 import org.apache.spark.ml.feature.{OneHotEncoder, StringIndexer, VectorAssembler}
 import org.apache.spark.ml.param.ParamMap
 import org.apache.spark.ml.regression.{LinearRegression, LinearRegressionModel}
 import org.apache.spark.ml.tuning.{ParamGridBuilder, TrainValidationSplit, TrainValidationSplitModel}
-import org.apache.spark.sql.{Dataset, Row, SparkSession}
 import org.apache.spark.sql.functions.col
+import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 object housePricePredict {
   def main(args: Array[String]): Unit = {
@@ -24,7 +26,7 @@ object housePricePredict {
 
 //    print(spark)
     //read the file which need to clean, transform and analysis
-    var csvData = spark.read.option("header", true).option("inferSchema", true).csv("./housePrice/kc_house_data.csv")
+    var csvData = spark.read.option("header", true).option("inferSchema", true).csv("data/kc_house_data.csv")
 
 //    csvData.show()
     //calculate the percentage of sqft and create this colum

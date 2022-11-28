@@ -11,11 +11,11 @@ object housrRelated{
   def main(args: Array[String]): Unit = {
     System.out.println("Hello world!")
 
-    System.setProperty("hadoop.home.dir", "D:/melo_project/environment/Hadoop")
-    Logger.getLogger("org.apache").setLevel(Level.WARN)
-
-    val spark: SparkSession = SparkSession.builder.appName("House Price Analysis").config("spark.sql.warehouse.dir", "file:///c:/tmp/").master("local[*]").getOrCreate
-
+    val spark = SparkSession.builder()
+      .master("local")
+      .appName("House Price Analysis")
+      .config("spark.sql.warehouse.dir", "file:///c:/tmp/")
+      .getOrCreate()
     var csvData: Dataset[Row] = spark.read.option("header", true).option("inferSchema", true).csv("data/kc_house_data.csv")
 
     //        csvData.describe().show();
