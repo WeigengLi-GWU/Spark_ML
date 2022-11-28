@@ -2,6 +2,7 @@ package com.wic.ml
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.ml.classification.{DecisionTreeClassifier, RandomForestClassifier}
+import org.apache.spark.ml.clustering.KMeans
 import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
 import org.apache.spark.ml.feature.{StringIndexer, VectorAssembler}
 import org.apache.spark.sql.SparkSession
@@ -11,7 +12,7 @@ import org.apache.spark.sql.types.DataTypes
 
 import java.util
 
-object decisionTree {
+object dT {
 
   var countryGrouping: UDF1[String, String] = new UDF1[String, String]() {
     @throws[Exception]
@@ -42,7 +43,7 @@ object decisionTree {
       .csv("data/vppFreeTrials.csv")
     csvData.show()
 
-    csvData = csvData.withColumn("country", callUDF("countryGrouping", col("country")))
+    csvData = csvData.withColumn("country", call_udf("countryGrouping", col("country")))
       .withColumn("label", when(col("payments_made").geq(1), lit(1)).otherwise(lit(0)))
 
     csvData.show()

@@ -7,5 +7,4 @@ lazy val root = (project in file("."))
   .settings(
     organization := "com.wic",
     name := "wci"
-
   )

@@ -1,4 +1,4 @@
-package com.wic.ml
+package com.wic.fullmlcode
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.ml.clustering.KMeans
@@ -20,7 +20,7 @@ object GymCompetitorsClustering {
     var csvData = spark.read
       .option("header", true)
       .option("inferSchema", true)
-      .csv("data/GymCompetition.csv")
+      .csv("./GymCluster/GymCompetition.csv")
 
     //csvData.printSchema();
 

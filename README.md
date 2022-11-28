@@ -4,8 +4,8 @@ Git repo for Group Scala
     Windows 10 and above
     Scala 2.12.15  
     Spark 3.2.2  
-    Hadoop 3.3.1  
-    Windows 10
+    Hadoop 3.3.1
+    sbt 1.8.0
 To download the exact environment we use this link:  
 https://drive.google.com/drive/folders/1bn8ApUKe88JQPCNB5JuZSP8xtqjZdI0m?usp=share_link  
 Hadoop file is huge(about 1.2G), we did so modify for windows system. If you want to reproduce this project, pleas use windows instead of linux.

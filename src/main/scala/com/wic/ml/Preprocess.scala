@@ -1,9 +1,9 @@
 package com.wic.ml
-
-import org.apache.spark.ml.feature.{OneHotEncoder, StringIndexer}
+import org.apache.spark.ml.feature.{OneHotEncoder, StringIndexer, VectorAssembler}
 import org.apache.spark.sql.{DataFrame, SparkSession}
-
+import com.wic.ml.KMean
 object Preprocess {
+  var kmean = new KMean()
   def to_onehot(dataframe: DataFrame, col_name: String): DataFrame = {
     val strIndexer = new StringIndexer
     strIndexer.setInputCol(col_name)
@@ -24,4 +24,6 @@ object Preprocess {
     }
     return newdata
   }
+
+
 }
