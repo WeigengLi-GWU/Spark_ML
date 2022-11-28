@@ -37,14 +37,14 @@ object RecommendSystem {
 
     val userRecs: Dataset[Row] = model.recommendForAllUsers(5)
     //        userRecs.show();
-    val userRecsList: List[Row] = userRecs.takeAsList(5)
+    val userRecsList: List[Row] = userRecs.takeAsList(100)
 
     for (r <- 0 to userRecsList.size() - 1) {
       val userId = userRecsList.get(r).get(0)
       val recs = userRecsList.get(r).get(1)
       println("User " + userId + " might want to recommend" + recs)
-      println("This user has already watched: ")
-      csvData.filter("userId =" + userId).show()
+//      println("This user has already watched: ")
+//      csvData.filter("userId =" + userId).show()
     }
 
     //        csvData.show();
