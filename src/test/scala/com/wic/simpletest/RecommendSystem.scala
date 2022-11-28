@@ -1,3 +1,5 @@
+package com.wic.simpletest
+
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.ml.recommendation.{ALS, ALSModel}
 import org.apache.spark.sql.functions.col
@@ -5,7 +7,7 @@ import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 import java.util.List
 
-object Main {
+object RecommendSystem {
   def main(args: Array[String]): Unit = {
     Logger.getLogger("org.apache").setLevel(Level.WARN)
 
@@ -15,7 +17,7 @@ object Main {
       .master("local[*]")
       .getOrCreate
 
-    var csvData: Dataset[Row] = spark.read.option("header", true).option("inferSchema", true).csv("src/test/scala/VPPcourseViews.csv")
+    var csvData: Dataset[Row] = spark.read.option("header", true).option("inferSchema", true).csv("data/VPPcourseViews.csv")
 
     csvData.show()
     //make it becomes integer
