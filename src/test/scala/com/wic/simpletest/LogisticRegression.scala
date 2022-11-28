@@ -1,4 +1,5 @@
-package com.wic.ml
+package com.wic.simpletest
+
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.ml.classification.{LogisticRegression, LogisticRegressionModel}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
@@ -8,7 +9,7 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, when}
 
 
-object VPPChapterViewsLogistic {
+object LogisticRegression {
   def main(args: Array[String]): Unit = {
 //    System.setProperty("hadoop.home.dir", "D:/CSCI6221/Hadoop")
     Logger.getLogger("org.apache").setLevel(Level.WARN)

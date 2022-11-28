@@ -16,9 +16,16 @@ class LinearRegression (master:String = "local[*]",
       val linearRegression: org.apache.spark.ml.regression.LinearRegression = new org.apache.spark.ml.regression.LinearRegression
       val paramGridBuilder: ParamGridBuilder = new ParamGridBuilder
 
-      val paramMap: Array[ParamMap] = paramGridBuilder.addGrid(linearRegression.regParam, Array[Double](0.01, 0.1, 0.5)).addGrid(linearRegression.elasticNetParam, Array[Double](0, 0.5, 1)).build
+      val paramMap: Array[ParamMap] = paramGridBuilder
+        .addGrid(linearRegression.regParam, Array[Double](0.01, 0.1, 0.5))
+        .addGrid(linearRegression.elasticNetParam, Array[Double](0, 0.5, 1))
+        .build
 
-      val trainValidationSplit: TrainValidationSplit = new TrainValidationSplit().setEstimator(linearRegression).setEvaluator(new RegressionEvaluator().setMetricName("r2")).setEstimatorParamMaps(paramMap).setTrainRatio(0.8)
+      val trainValidationSplit: TrainValidationSplit = new TrainValidationSplit()
+        .setEstimator(linearRegression)
+        .setEvaluator(new RegressionEvaluator().setMetricName("r2"))
+        .setEstimatorParamMaps(paramMap)
+        .setTrainRatio(0.8)
 
       val lrmodel: TrainValidationSplitModel = trainValidationSplit.fit(train_set)
       this.model = lrmodel.bestModel.asInstanceOf[LinearRegressionModel]

@@ -1,15 +1,16 @@
 
-package com.wic.ml
+package com.wic.fullmlcode
+
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
 import org.apache.spark.ml.feature.{OneHotEncoder, StringIndexer, VectorAssembler}
-import org.apache.spark.ml.regression.{LinearRegression, LinearRegressionModel}
+import org.apache.spark.ml.regression.LinearRegressionModel
 import org.apache.spark.ml.tuning.{ParamGridBuilder, TrainValidationSplit}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 
 
-object VPPChapterViewsLinear {
+object LinearRegressionTest {
   def main(args: Array[String]): Unit = {
     Logger.getLogger("org.apache").setLevel(Level.WARN)
 
