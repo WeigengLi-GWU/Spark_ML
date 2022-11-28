@@ -38,6 +38,14 @@ To write code using our ml API, you need to add library. We use sbt (Scala build
 You can import this project into IntelliJ IDEA and use that to set up the coding environment automatically.
 Or you can add the %SPARK_HOME%\jar to your library and it should contain all the jars this project need.
 
-# Quick Test
-Use our GUI to start master and workers. And submit
+# 2.Quick Test
+Compile the project using these sbt command  
+   ```
+   sbt compile
+   sbt test:compile
+   ```
+## 2.1 Using GUI
+Use our GUI to start master and workers.Run startGUI in src/test/scala/com/wic/startGUI
 
+
+## 2.2 Run simple test
