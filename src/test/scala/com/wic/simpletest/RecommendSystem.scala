@@ -41,8 +41,8 @@ object RecommendSystem {
 
     for (r <- 0 to userRecsList.size() - 1) {
       val userId = userRecsList.get(r).get(0)
-      val recs = userRecsList.get(r).get(1)
-      println("User " + userId + " might want to recommend" + recs)
+      val recs = userRecsList.get(r).get(1).toString
+      println("User " + userId + " might want to recommend: " + recs.substring(12))
 //      println("This user has already watched: ")
 //      csvData.filter("userId =" + userId).show()
     }
