@@ -8,6 +8,6 @@ libraryDependencies += "com.opencsv" % "opencsv" % "5.7.1"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "wci"
+    name := "wic"
 
   )

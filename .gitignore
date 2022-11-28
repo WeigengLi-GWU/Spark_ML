@@ -9,3 +9,4 @@ bat/start_worker.bat
 /project/
 /null/
 /.bsp/
+.bsp/sbt.json

@@ -49,3 +49,9 @@ Use our GUI to start master and workers.Run startGUI in src/test/scala/com/wic/s
 
 
 ## 2.2 Run simple test
+Try our Simple Test files in src/test/scala/com/wic/simpletest 
+Each of them fulfilled different Machine Learning Method using different method
+The default server is your local server. If you want to apply model in you cluster, 
+check the commit and change the ip to your spark://your_ip:7077 address.Use GUI to build up your cluster
+You can find that address in your spark GUI website.
+
