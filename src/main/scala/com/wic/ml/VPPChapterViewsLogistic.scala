@@ -13,6 +13,7 @@ object VPPChapterViewsLogistic {
 //    System.setProperty("hadoop.home.dir", "D:/CSCI6221/Hadoop")
     Logger.getLogger("org.apache").setLevel(Level.WARN)
 
+    //load the data
     val spark = SparkSession.builder
       .appName("VPP Chapter Views")
       .config("spark.sql.warehouse.dir", "file:///c:/tmp/")
@@ -24,16 +25,18 @@ object VPPChapterViewsLogistic {
       .option("inferSchema", true)
       .csv("data/vppChapterViews/*.csv")
 
+    //Removing unsubscribed customers' information
     csvData = csvData.filter("is_cancelled = false").drop("observation_date", "is_cancelled")
 
     //1 - customers watched no videos, 0 - customers watched some videos
-
+    // Handle non-numeric data and make it computable
     csvData = csvData.withColumn("firstSub", when(col("firstSub").isNull, 0).otherwise(col("firstSub")))
       .withColumn("all_time_views", when(col("all_time_views").isNull, 0).otherwise(col("all_time_views")))
       .withColumn("last_month_views", when(col("last_month_views").isNull, 0).otherwise(col("last_month_views")))
       .withColumn("next_month_views", when(col("next_month_views").$greater(0), 0).otherwise(1))
     csvData = csvData.withColumnRenamed("next_month_views", "label")
 
+    //indexing the data
     val payMethodIndexer = new StringIndexer
     csvData = payMethodIndexer.setInputCol("payment_method_type")
       .setOutputCol("payIndex")
@@ -52,6 +55,7 @@ object VPPChapterViewsLogistic {
       .fit(csvData)
       .transform(csvData)
 
+    //encoding the data and make it become Vector
     val encoder = new OneHotEncoder
     csvData = encoder.setInputCols(Array[String]("payIndex", "countryIndex", "periodIndex"))
       .setOutputCols(Array[String]("payVector", "countryVector", "periodVector"))
@@ -64,10 +68,12 @@ object VPPChapterViewsLogistic {
       .transform(csvData)
       .select("label", "features")
 
+    //Hold the data according to the ratio of 9:1
     val trainAndHoldoutData = inputData.randomSplit(Array[Double](0.9, 0.1))
     val trainAndTestData = trainAndHoldoutData(0)
     val holdOutData = trainAndHoldoutData(1)
 
+    //using logistic regression as model method
     val logisticRegression = new LogisticRegression
 
     val pgb = new ParamGridBuilder
