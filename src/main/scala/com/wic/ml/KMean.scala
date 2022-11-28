@@ -14,12 +14,11 @@ class KMean(master:String = "local[*]",
   var distance : Double = _
 
 
-  def fit(data: DataFrame,num_Clusters: Int): Unit ={
+  def fit(inputData: DataFrame,num_Clusters: Int): Unit ={
     if (num_Clusters < 1) {
       println("Number of Cluster must bigger than 1")
       return
     }
-    var inputData = data_transform(data)
     val kMeans = new KMeans
     kMeans.setK(num_Clusters)
     this.num_cluster = num_Clusters
@@ -33,7 +32,7 @@ class KMean(master:String = "local[*]",
     this.distance = evaluator.evaluate(predictions)
   }
 
-  def tune(data: DataFrame, min_clusters:Int,max_clusters :Int): Unit ={
+  def tune(inputData: DataFrame, min_clusters:Int,max_clusters :Int): Unit ={
     if (min_clusters <=1){
       println("Number of Cluster must bigger than 1")
       return
@@ -41,7 +40,6 @@ class KMean(master:String = "local[*]",
       println("max_clusters smaller than min")
       return
     }
-    var inputData = data_transform(data)
     val kMeans = new KMeans
     var max_distance : Double = 0
     var best_cluster :Int = 0
@@ -61,10 +59,9 @@ class KMean(master:String = "local[*]",
       distant_list = distance+:distant_list
     }
     println("Best model with number of cluster between "+min_clusters+" and "+max_clusters+" is")
-    this.fit(data,best_cluster)
+    this.fit(inputData,best_cluster)
     this.info()
   }
-
 
   def info(): Unit = {
     println("Number of clusters: " + this.num_cluster)
@@ -75,5 +72,8 @@ class KMean(master:String = "local[*]",
     println("Slihouette with squared euclidean distance is " + this.distance)
   }
 
+  def save(path:String): Unit ={
+    this.model.save(path)
+  }
 
 }

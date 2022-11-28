@@ -1,8 +1,7 @@
-package com.wic.ml
+package com.wic.fullmlcode
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.ml.classification.{DecisionTreeClassifier, RandomForestClassifier}
-import org.apache.spark.ml.clustering.KMeans
 import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
 import org.apache.spark.ml.feature.{StringIndexer, VectorAssembler}
 import org.apache.spark.sql.SparkSession
@@ -12,7 +11,7 @@ import org.apache.spark.sql.types.DataTypes
 
 import java.util
 
-object dT {
+object decisionTree {
 
   var countryGrouping: UDF1[String, String] = new UDF1[String, String]() {
     @throws[Exception]
@@ -40,10 +39,10 @@ object dT {
     var csvData = spark.read
       .option("header", true)
       .option("inferSchema", true)
-      .csv("data/vppFreeTrials.csv")
+      .csv("./nextVideoWatch/VPPFreeTrials.csv")
     csvData.show()
 
-    csvData = csvData.withColumn("country", call_udf("countryGrouping", col("country")))
+    csvData = csvData.withColumn("country", callUDF("countryGrouping", col("country")))
       .withColumn("label", when(col("payments_made").geq(1), lit(1)).otherwise(lit(0)))
 
     csvData.show()
