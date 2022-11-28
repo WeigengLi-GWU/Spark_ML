@@ -4,7 +4,7 @@ import javafx.event.ActionEvent
 import javafx.scene.Scene
 import javafx.scene.control.{Button, TextField}
 import javafx.scene.layout.StackPane
-import javafx.scene.text.Text
+import javafx.scene.text.{Font, Text}
 import javafx.stage.Stage
 
 import java.awt.Desktop
@@ -51,11 +51,12 @@ class HelloWorld extends Application
     })
 
     // Worker
-
+    val input_ip = new Text("Please input the Master IP You would like to join.")
     val worker = new Button
     worker.setText("add worker")
     val worker_bat = new Auto_Hive_Conf()
-    val master_ip = new TextField()
+    val master_ip = new TextField(ip)
+    master_ip.setPrefWidth(0.01)
     val textbox = new Text
     worker.setOnAction((e: ActionEvent) => {
       root.getChildren.remove(master_ip)
@@ -64,15 +65,15 @@ class HelloWorld extends Application
       worker_bat.write_worker_nodes_bat(master_ip.getText())
       Runtime.getRuntime.exec("start_worker.bat")
       root.getChildren.remove(worker)
-      println("worker added")
     })
 
     // Submit
-    val submit = new Button
-    submit.setText("submit work")
+    //val submit = new Button
+    //submit.setText("submit work")
 
     // location
     root.getChildren.add(ip_address) //ip_text
+
     ip_address.setTranslateX(0)
     ip_address.setTranslateY(-130)
     root.getChildren.add(master) //master
@@ -83,14 +84,17 @@ class HelloWorld extends Application
     root.getChildren.add(worker) //worker
     worker.setTranslateX(0)
     worker.setTranslateY(100)
+    root.getChildren.add(input_ip)
+    input_ip.setTranslateX(0)
+    input_ip.setTranslateY(0)
     root.getChildren.add(master_ip) //master ip location
     master_ip.setTranslateX(0)
     master_ip.setTranslateY(50)
     textbox.setTranslateX(0)
     textbox.setTranslateY(50)
-    root.getChildren.add(submit) //submit
-    submit.setTranslateX(0)
-    submit.setTranslateY(150)
+    //root.getChildren.add(submit) //submit
+    //submit.setTranslateX(0)
+    //submit.setTranslateY(150)
 
     primaryStage.show
   }
