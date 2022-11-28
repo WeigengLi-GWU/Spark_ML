@@ -19,6 +19,14 @@ class Auto_Hive_Conf {
       printWriter.close() // Closing printwriter
     }
 
+    def write_exit_bat(): Unit = {
+      val fileObject = new File("exit_all.bat")
+      val printWriter = new PrintWriter(fileObject)
+      printWriter.write(
+        "taskkill /f /im java.exe")
+      printWriter.close() // Closing printwriter
+    }
+
     def write_submit_nodes_bat(): Unit = {
       val ip = tracker.track_ip()
       val fileObject = new File("submit_job.bat")

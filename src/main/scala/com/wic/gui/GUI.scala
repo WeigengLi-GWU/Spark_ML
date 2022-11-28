@@ -67,6 +67,15 @@ class HelloWorld extends Application
       root.getChildren.remove(worker)
     })
 
+    // Exit
+    val exit = new Button
+    exit.setText("Exit")
+    val exit_bat = new Auto_Hive_Conf() // create Auto_Hive_Conf
+    exit_bat.write_exit_bat()
+    exit.setOnAction((e: ActionEvent) => {
+      Runtime.getRuntime.exec("exit_all.bat")
+    })
+
     // Submit
     //val submit = new Button
     //submit.setText("submit work")
@@ -95,6 +104,9 @@ class HelloWorld extends Application
     //root.getChildren.add(submit) //submit
     //submit.setTranslateX(0)
     //submit.setTranslateY(150)
+    root.getChildren.add(exit) //exit
+    exit.setTranslateX(0)
+    exit.setTranslateY(150)
 
     primaryStage.show
   }
