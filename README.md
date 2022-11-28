@@ -45,6 +45,15 @@ Compile the project using these sbt command
    sbt test:compile
    ```
 ## 2.1 Using GUI
+Step 1: Run GUI.Scala
+Step 2: if you wish to create a master on Apache Spark just click create master if you wish to add yourself
+as a worker of another master just simply type the master IP address of another user and click add worker.
+if your master don't know what's his/her master IP just look at the first line of GUI which tells you what 
+your IP address is.
+Step 3: after all works are done just simply press exit to exit either master or worker state otherwise the 
+program will always run at backstage and will never stop waste your computer's resources, therefore please 
+press exit key instead of just close the window on the right up cornor.
+Thank you for using Distributed Machine Learning Apache Spark easy connection system.
 Use our GUI to start master and workers.Run startGUI in src/test/scala/com/wic/startGUI
 
 
