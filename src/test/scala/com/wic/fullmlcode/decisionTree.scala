@@ -39,7 +39,7 @@ object decisionTree {
     var csvData = spark.read
       .option("header", true)
       .option("inferSchema", true)
-      .csv("./nextVideoWatch/VPPFreeTrials.csv")
+      .csv(".data/VPPFreeTrials.csv")
     csvData.show()
 
     csvData = csvData.withColumn("country", callUDF("countryGrouping", col("country")))

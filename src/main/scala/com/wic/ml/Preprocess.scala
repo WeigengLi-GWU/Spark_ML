@@ -58,6 +58,18 @@ object Preprocess {
     return (trainingData,holdoutData)
   }
 
+  def cal_correlation_matrix(data_path: String): Unit ={
+    val spark = SparkSession.builder()
+      .master("local")
+      .appName("Calculate Correlation Matrix")
+      .config("spark.sql.warehouse.dir", "file:///c:/tmp/")
+      .getOrCreate()
+    var csvData = spark.read
+      .option("header", true)
+      .option("inferSchema", true)
+      .csv(data_path)
+
+  }
 
 
 }
